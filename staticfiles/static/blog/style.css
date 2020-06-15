@@ -1,0 +1,41 @@
+.body{
+    background-color: rgb(200,200,200);
+}
+
+
+
+.post-content{
+    
+    margin-top:2rem;
+    margin-bottom:2rem; 
+    border-radius: 15px;
+    border:1px rgb(150,150,150) solid;
+    padding:1.5rem;
+    box-shadow: 5px 10px 10px rgb(125,125,125);
+    background-color: white;
+}
+
+.post-content .post-title a{
+color:#333;
+text-decoration:none;
+}
+
+.post-content .post-title a:hover{
+    color:cornflowerblue; 
+    text-decoration: none;
+}
+
+#profile-image {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+div.account-heading{
+    margin:2rem 0rem 0rem 5px;
+}
+
+.raq{
+    font-size: 40px;
+}

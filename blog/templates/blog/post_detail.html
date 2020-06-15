@@ -1,0 +1,16 @@
+{% extends 'blog/main.html' %}
+{% block content %}
+<div class="post-content">
+    <p><a href="#" style="text-decoration: none;">{{object.author}}</a>&nbsp&nbsp&nbsp {{object.posted_on}}</p>
+    {% if object.author == user %}
+    <p><a href="{% url 'blogs:blog-update' post.pk %}" class="btn btn-info btn-sm ">Update Blog</a>
+        <a href="{% url 'blogs:blog-delete' post.pk %}" class="btn btn-danger btn-sm ">Delete Blog</a></p>
+    {% endif %}
+    <hr>
+    <h1>{{object.title|title}}</h1>
+
+    <p>{{object.content|linebreaks}}</p>
+
+</div>
+
+{% endblock %}

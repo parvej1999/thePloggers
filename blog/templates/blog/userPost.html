@@ -1,0 +1,17 @@
+{% extends 'blog/main.html' %}
+{% block content %}
+{% for post in  posts %}
+<div class="post-content">
+    <p>{{post.author}}&nbsp&nbsp&nbsp {{post.posted_on}}</p>
+    <hr>
+    <div class="post-title">
+        <a href="{% url 'blogs:blog-detail' post.id %}">
+            <h1>{{post.title|title}}</h1>
+        </a>
+    </div>
+    <p>{{post.content|slice:":400"}}&nbsp<a href='{% url "blogs:blog-detail" post.pk %}'>more</a>...</p>
+
+</div>
+{% endfor %}
+
+{% endblock %}

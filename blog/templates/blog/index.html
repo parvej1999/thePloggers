@@ -1,0 +1,44 @@
+{% extends 'blog/main.html' %}
+{% block content %}
+{% for post in  posts %}
+<div class="post-content">
+    <p><a href="{% url 'blogs:user-blogs' post.author.username %}"
+            style="text-decoration: none;">{{post.author}}</a>&nbsp&nbsp&nbsp
+        {{post.posted_on}}</p>
+    <hr>
+    <div class="post-title">
+        <a href="{% url 'blogs:blog-detail' post.id %}">
+            <h1>{{post.title}}</h1>
+        </a>
+    </div>
+    <p>{{post.content|slice:":400"}}&nbsp<a href='{% url "blogs:blog-detail" post.pk %}'>more</a>...</p>
+
+</div>
+{% endfor %}
+<div class="pagination">
+    {% if is_paginated %}
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+        <a href="?page=1" class='btn btn-outline-info mb-4'>First</a>
+        <a href="?page={{page_obj.previous_page_number}} " class='btn btn-outline-info mb-4'>Prev</a>
+
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+        <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+        <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+        {% endfor %}
+
+
+        {% if page_obj.has_next %}
+        <a href="?page={{page_obj.next_page_number}}" class='btn btn-outline-info mb-4'>
+            Next</a>
+        <a href="?page={{page_obj.paginator.num_pages}}" class="btn btn-outline-info mb-4">Last</a>
+        {% endif %}
+    </span>
+    {%endif%}
+</div>
+{% endblock %}

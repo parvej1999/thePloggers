@@ -25,6 +25,8 @@
             <button class="btn btn-info">Comment</button>
         </fieldset>
     </form>
+    {% else %}
+    <h2 class='text-muted'>Login To Make Comment</h2>
     {% endif %}
     <h2>Comments:</h2>
     {% for comment in object.comment_set.all|dictsortreversed:'commented_on' %}

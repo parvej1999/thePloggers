@@ -21,6 +21,7 @@ from django.contrib.auth.models import User
 from Users import views as users_views
 from django.contrib.auth import views as auth_views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls', namespace='blogs')),

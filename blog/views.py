@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post
+from .models import Post, comment
 from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from .forms import commentForm
 
 # Create your views here.
 
@@ -40,13 +41,34 @@ def userPost(request, username):
     author = User.objects.get(username=username)
     posts = Post.objects.filter(author=author)
     context = {
-        'posts':posts
+        'posts': posts
     }
     return render(request, 'blog/userPost.html', context)
 
 
-class blogDetailView(DetailView):
-    model = Post
+# class blogDetailView(DetailView):
+#     model = Post
+
+
+def blogDetailView(request, pk):
+    current_post = Post.objects.get(pk=pk)
+    form = commentForm()
+    if request.method == 'POST':
+        form = commentForm(request.POST)
+        if form.is_valid():
+            Comment = comment(
+                user=request.user,
+                Comment=current_post,
+                body=form.cleaned_data["body"],
+
+            )
+            Comment.save()
+
+    context = {
+        'object': current_post,
+        'form': form,
+    }
+    return render(request, 'blog/post_detail.html', context)
 
 
 class blogCreateView(LoginRequiredMixin, CreateView):

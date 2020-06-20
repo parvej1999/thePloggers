@@ -4,7 +4,7 @@
 <div class="post-content">
     <p><a href="{% url 'blogs:user-blogs' post.author.username %}"
             style="text-decoration: none;">{{post.author}}</a>&nbsp&nbsp&nbsp
-        {{post.posted_on}}</p>
+        {{post.posted_on|date:'M d, Y'}}</p>
     <hr>
     <div class="post-title">
         <a href="{% url 'blogs:blog-detail' post.id %}">

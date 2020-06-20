@@ -1,5 +1,6 @@
 {% extends 'blog/main.html' %}
 {% block content %}
+{% load crispy_forms_tags %}
 <div class="post-content">
     <p><a href="#" style="text-decoration: none;">{{object.author}}</a>&nbsp&nbsp&nbsp {{object.posted_on}}</p>
     {% if object.author == user %}
@@ -9,7 +10,34 @@
     <hr>
     <h1>{{object.title|title}}</h1>
 
+
     <p>{{object.content|linebreaks}}</p>
+    {% if user.is_authenticated %}
+    <form method="POST">
+        {% csrf_token %}
+        <legend>Comment Here!</legend>
+        <fieldset>
+            <div class="form-row">
+                <div class="form-group col-md-12 mb-1">
+                    {{ form.body}}
+                </div>
+            </div>
+            <button class="btn btn-info">Comment</button>
+        </fieldset>
+    </form>
+    {% endif %}
+    <h2>Comments:</h2>
+    {% for comment in object.comment_set.all|dictsortreversed:'commented_on' %}
+    <p>
+        <small>
+            On {{comment.commented_on|date:'M d, Y' }}&nbsp&nbsp
+            <b>{{ comment.user }}</b> wrote:
+        </small>
+
+    </p>
+    <p>{{ comment.body }}</p>
+    <hr>
+    {% endfor %}
 
 </div>
 

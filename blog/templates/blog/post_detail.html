@@ -2,10 +2,12 @@
 {% block content %}
 {% load crispy_forms_tags %}
 <div class="post-content">
-    <p><a href="#" style="text-decoration: none;">{{object.author}}</a>&nbsp&nbsp&nbsp {{object.posted_on}}</p>
+    <p><a href="{% url 'blogs:user-blogs' object.author.username %}"
+            style="text-decoration: none;">{{object.author}}</a>&nbsp&nbsp&nbsp
+        {{object.posted_on}}</p>
     {% if object.author == user %}
-    <p><a href="{% url 'blogs:blog-update' post.pk %}" class="btn btn-info btn-sm ">Update Blog</a>
-        <a href="{% url 'blogs:blog-delete' post.pk %}" class="btn btn-danger btn-sm ">Delete Blog</a></p>
+    <p><a href="{% url 'blogs:blog-update' object.pk %}" class="btn btn-info btn-sm ">Update Blog</a>
+        <a href="{% url 'blogs:blog-delete' object.pk %}" class="btn btn-danger btn-sm ">Delete Blog</a></p>
     {% endif %}
     <hr>
     <h1>{{object.title|title}}</h1>
@@ -26,9 +28,13 @@
         </fieldset>
     </form>
     {% else %}
-    <h2 class='text-muted'>Login To Make Comment</h2>
+    <hr color='black'>
+    <h5 class='text-muted'>Login To Make Comment <a href="{% url 'login' %}">Login</a></h5>
     {% endif %}
+
     <h2>Comments:</h2>
+    <hr>
+    {% if comments %}
     {% for comment in object.comment_set.all|dictsortreversed:'commented_on' %}
     <p>
         <small>
@@ -37,9 +43,15 @@
         </small>
 
     </p>
+
     <p>{{ comment.body }}</p>
     <hr>
     {% endfor %}
+    {% else %}
+    <center>
+        <h3 class='text-muted'>No Comments Yet!</h3>
+    </center>
+    {% endif %}
 
 </div>
 

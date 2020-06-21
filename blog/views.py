@@ -1,32 +1,11 @@
 from django.shortcuts import render, get_object_or_404
+from django.http import Http404
 from .models import Post, comment
 from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from .forms import commentForm
-
-# Create your views here.
-
-# posts = [
-#     {
-#         "author": "parvej khan",
-#         "pub_date": "05 jun 2020",
-#         "content": "Hi first post to check frontend website",
-#         'title': "First Post"
-#     },
-#     {
-#         "author": "parvej khan",
-#         "pub_date": "05 jun 2020",
-#         "content": "Hi first post to check frontend website",
-#         'title': "First Post"
-#     },
-# ]
-
-
-def index(request):
-    posts = Post.objects.all().order_by('-recently_updated_on')
-    return render(request, 'blog/index.html', {'posts': posts})
 
 
 class blogListView(ListView):
@@ -38,16 +17,16 @@ class blogListView(ListView):
 
 
 def userPost(request, username):
-    author = User.objects.get(username=username)
+    try:
+        author = User.objects.get(username=username)
+    except User.DoesNotExist:
+        raise Http404()
+
     posts = Post.objects.filter(author=author)
     context = {
         'posts': posts
     }
     return render(request, 'blog/userPost.html', context)
-
-
-# class blogDetailView(DetailView):
-#     model = Post
 
 
 def blogDetailView(request, pk):
@@ -64,9 +43,15 @@ def blogDetailView(request, pk):
             )
             Comment.save()
 
+    comments = list(current_post.comment_set.all())
+    if len(comments) == 0:
+        comments = False
+    print(comments)
+
     context = {
         'object': current_post,
         'form': form,
+        'comments': comments,
     }
     return render(request, 'blog/post_detail.html', context)
 
@@ -74,7 +59,6 @@ def blogDetailView(request, pk):
 class blogCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title', 'content']
-    # success_url = 'blogs:blog-index'
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -98,7 +82,7 @@ class blogUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class blogDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
-    success_url = "/blogs"
+    success_url = "/"
 
     def test_func(self):
         post = self.get_object()

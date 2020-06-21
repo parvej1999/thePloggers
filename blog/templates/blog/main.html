@@ -33,13 +33,13 @@
                         </a>
                     </li>
                     <li class="nav-item mt-3 ml-3 ">
-                        <a class="nav-link" style='color:sandybrown' href="{% url 'blogs:blog-index' %}"><b>Home</b></a>
+                        <a class="nav-link" href="{% url 'blogs:blog-index' %}"><b>Home</b></a>
                     </li>
                     <li class="nav-item mt-3 ml-3">
-                        <a class="nav-link" style='color:sandybrown' href="#"><b>About</b></a>
+                        <a class="nav-link" href="#"><b>About</b></a>
                     </li>
                     <li class="nav-item mt-3 ml-3">
-                        <a class="nav-link disabled" style='color:sandybrown' href="#"><b>Contact</b></a>
+                        <a class="nav-link disabled" href="#"><b>Contact</b></a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
@@ -51,19 +51,16 @@
                     </li>
 
                     <li class="nav-item mt-3 ml-3">
-                        <a class="nav-item nav-link" style='color:sandybrown'
-                            href='{% url "blogs:blog-create" %}'><b>New
+                        <a class="nav-item nav-link" href='{% url "blogs:blog-create" %}'><b>New
                                 Post</b></a>
                     </li>
 
                     <li class="nav-item mt-3 ml-3">
-                        <a class="nav-item nav-link" style='color:sandybrown'
-                            href="{% url 'profile' %}"><b>{{user.username}}</b></a>
+                        <a class="nav-item nav-link" href="{% url 'profile' %}"><b>{{user.username}}</b></a>
                     </li>
 
                     <li class="nav-item mt-3 ml-3">
-                        <a class="nav-item nav-link" style='color:sandybrown'
-                            href='{% url "logout" %}'><b>Logout</b></a>
+                        <a class="nav-item nav-link" href='{% url "logout" %}'><b>Logout</b></a>
                     </li>
 
                     {% else %}
@@ -81,12 +78,11 @@
                     <br />
                     <br />
                     <li class="nav-item mt-3 ml-3">
-                        <a class="nav-item nav-link" style='color:sandybrown' href='{% url "login" %}'><b>Login</b></a>
+                        <a class="nav-item nav-link" href='{% url "login" %}'><b>Login</b></a>
                     </li>
 
                     <li class="nav-item mt-3 ml-3">
-                        <a class="nav-item nav-link" style='color:sandybrown'
-                            href='{% url "userRegistration" %}'><b>Register</b></a>
+                        <a class="nav-item nav-link" href='{% url "userRegistration" %}'><b>Register</b></a>
                     </li>
                     {% endif %}
             </div>

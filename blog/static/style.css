@@ -13,8 +13,15 @@
 
 .mymail .text a{
     text-decoration: none;
-    color:white;
+    color:rgba(255,255,255,0.8);
     letter-spacing: 0.1rem;
+
+}
+
+.mymail .text a:hover{
+    color:white;
+    letter-spacing: 0.2rem;
+
 }
 
 .post-content{

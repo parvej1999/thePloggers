@@ -1,9 +1,23 @@
 .body{
+    margin:0px;
+    padding:0px;
     background-color: rgb(200,200,200);
 }
 
-.post-content{
+.mymail{
+    background:black;
+    text-align: center;
+    padding:0.1rem;
     
+}
+
+.mymail .text a{
+    text-decoration: none;
+    color:white;
+    letter-spacing: 0.1rem;
+}
+
+.post-content{
     margin-top:2rem;
     margin-bottom:2rem; 
     border-radius: 15px;

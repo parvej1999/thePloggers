@@ -26,3 +26,10 @@ class comment(models.Model):
 
     def __str__(self):
         return self.body
+
+class feedback(models.Model):
+    fullName = models.CharField(max_length=150)
+    contact = models.CharField(max_length=150)
+    msg = models.CharField(max_length=300)
+    def __str__(self):
+        return self.fullName

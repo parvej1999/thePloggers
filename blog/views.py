@@ -1,12 +1,12 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import Http404
+from django.http import Http404, JsonResponse
 from .models import Post, comment
 from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from .forms import commentForm
-
+from .models import feedback
 
 class blogListView(ListView):
     model = Post
@@ -89,3 +89,16 @@ class blogDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if post.author == self.request.user:
             return True
         return False
+
+def feedbacks(request):
+    if request.method == "POST":
+        fname = request.POST.get('fName')
+        phone = request.POST.get('cntct')
+        _msg = request.POST.get('message')
+        print(phone, fname, _msg)
+        instance = feedback.objects.create(fullName=fname, contact=phone, msg=_msg)
+        instance.save()
+        return JsonResponse({
+            'data':'saved',
+        })
+    return render(request, 'blog/feedbackform.html')

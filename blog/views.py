@@ -95,10 +95,24 @@ def feedbacks(request):
         fname = request.POST.get('fName')
         phone = request.POST.get('cntct')
         _msg = request.POST.get('message')
+        _mail = request.POST.get('mail')
         print(phone, fname, _msg)
-        instance = feedback.objects.create(fullName=fname, contact=phone, msg=_msg)
+        instance = feedback.objects.create(fullName=fname, contact=phone, msg=_msg, email=_mail)
         instance.save()
         return JsonResponse({
             'data':'saved',
         })
     return render(request, 'blog/feedbackform.html')
+
+
+def indexFeedbacks(request):
+    if User.is_superuser:
+        feedbacks = feedback.objects.all()
+        context = {
+            "feedbacks":feedbacks,
+        }
+
+        
+        return render(request, 'blog/allFeedback.html', context)
+    else:
+        return render(request, 'blog/index.html', context)

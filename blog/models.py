@@ -30,6 +30,7 @@ class comment(models.Model):
 class feedback(models.Model):
     fullName = models.CharField(max_length=150)
     contact = models.CharField(max_length=150)
+    email = models.EmailField(max_length = 254, null=True)
     msg = models.CharField(max_length=300)
     def __str__(self):
         return self.fullName

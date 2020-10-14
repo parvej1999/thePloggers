@@ -23,6 +23,11 @@
 
         {% endblock %}
     </title>
+
+    <style>
+        
+    </style>
+
 </head>
 
 <body class='body'>
@@ -46,9 +51,15 @@
                     <li class="nav-item mt-3 ml-3">
                         <a class="nav-link" href="#"><b>About</b></a>
                     </li>
+                    {% if request.user.is_superuser %}
+                    <li class="nav-item mt-3 ml-3">
+                        <a class="nav-link" href="{% url 'blogs:allFeedback' %}"><b>All Feedbacks</b></a>
+                    </li>
+                    {% else %}
                     <li class="nav-item mt-3 ml-3">
                         <a class="nav-link" href="{% url 'blogs:feedback' %}"><b>Feedback</b></a>
                     </li>
+                    {% endif %}
                     <li class="nav-item mt-3 ml-3">
                         <a class="nav-link disabled" href="#"><b>Contact</b></a>
                     </li>

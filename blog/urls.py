@@ -13,5 +13,6 @@ urlpatterns = [
     path('update/<int:pk>', blogUpdateView.as_view(), name='blog-update'),
     path('delete/post/<int:pk>', blogDeleteView.as_view(), name='blog-delete'),
     path('feedback/form', views.feedbacks, name='feedback'),
+    path('userFeedbacks/all', views.indexFeedbacks, name='allFeedback'),
 
 ]

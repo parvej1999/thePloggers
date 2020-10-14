@@ -1,0 +1,36 @@
+{% extends 'blog/main.html' %}
+{% block title %}
+All Feedbacks
+{% endblock %}
+
+{% block css %}
+<!-- bootstrap css -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<!-- end bootstrap css  -->
+{% endblock %}
+
+{% block content %}
+<!-- block content -->
+{% if feedbacks %}
+{% for feedback in feedbacks %}
+<div class="accordion" id="accordionExample">
+    <div class="card mb-5 mt-5">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse_{{forloop.counter}}" aria-expanded="false" aria-controls="collapse_{{forloop.counter}}">
+            {{feedback.email}} - {{feedback.fullName}}
+          </button>
+        </h2>
+      </div>
+  
+      <div id="collapse_{{forloop.counter}}" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+            {{feedback.msg}}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+{% endif %}
+{% endblock %}

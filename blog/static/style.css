@@ -1,3 +1,4 @@
+@import url(//db.onlinewebfonts.com/c/16efa2896f117dae2debeb23ab4715dd?family=DidoteTextW01-Italic);
 .body{
     margin:0px;
     padding:0px;
@@ -60,4 +61,11 @@ div.account-heading{
 
 .raq{
     font-size: 40px;
+}
+
+
+
+.nav-item .nav-link h2{
+    font-family: Didot--eText--Italic, serif;
+    font-style: italic;
 }

@@ -25,6 +25,10 @@
 
 }
 
+.nav-link{
+    font-family: Didot--eText--Italic, serif;
+}
+
 .post-content{
     margin-top:2rem;
     margin-bottom:2rem; 

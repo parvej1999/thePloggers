@@ -107,12 +107,18 @@ def feedbacks(request):
 
 def indexFeedbacks(request):
     if User.is_superuser:
-        feedbacks = feedback.objects.all()
+        feedbacks = feedback.objects.all().order_by('-timeStamp')
         context = {
             "feedbacks":feedbacks,
         }
-
-        
+        if request.method == 'POST':
+            pk = request.POST.get('id')
+            print(pk)
+            instance = feedback.objects.get(id = pk)
+            if (instance.visited == False):
+                instance.visited = True
+            print(instance.visited)
+            instance.save()
         return render(request, 'blog/allFeedback.html', context)
     else:
         return render(request, 'blog/index.html', context)

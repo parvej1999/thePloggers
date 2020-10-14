@@ -32,5 +32,8 @@ class feedback(models.Model):
     contact = models.CharField(max_length=150)
     email = models.EmailField(max_length = 254, null=True)
     msg = models.CharField(max_length=300)
+    visited = models.BooleanField(default = False)
+    timeStamp = models.DateTimeField(auto_now = True)
+
     def __str__(self):
-        return self.fullName
+        return "{0}-{1}".format(self.fullName, self.email)

@@ -13,24 +13,51 @@ All Feedbacks
 {% block content %}
 <!-- block content -->
 {% if feedbacks %}
-{% for feedback in feedbacks %}
-<div class="accordion" id="accordionExample">
-    <div class="card mb-5 mt-5">
-      <div class="card-header" id="headingOne">
-        <h2 class="mb-0">
-          <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse_{{forloop.counter}}" aria-expanded="false" aria-controls="collapse_{{forloop.counter}}">
+<div class="accordion " id="accordionExample">
+    {% for feedback in feedbacks %}
+    {% if feedback.visited %}
+    <div class="card mt-5 ">
+    {% else %}
+    <div class="card mt-5 bg-primary text-white">
+    {% endif %}
+
+      <div class="card-header" id="headingOne_{{forloop.counter}}">
+        <span class="mb-0">
+          <p style="display:none;">{{feedback.id}}</p>
+          <span class="collpasible-btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse_{{forloop.counter}}" aria-expanded="false" aria-controls="collapse_{{forloop.counter}}">
             {{feedback.email}} - {{feedback.fullName}}
-          </button>
-        </h2>
+          </span>
+        </span>
       </div>
   
       <div id="collapse_{{forloop.counter}}" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
         <div class="card-body">
-            {{feedback.msg}}
+            <p>{{feedback.msg}}</p>
         </div>
       </div>
     </div>
-  </div>
-  {% endfor %}
+    {% endfor %}
+</div>
 {% endif %}
+{% endblock %}
+{% block JS %}
+<script>
+  const collapse = document.getElementsByClassName("collpasible-btn");
+  Array.from(collapse).forEach(element => {
+    element.addEventListener("click", function (){
+        idNode = element.previousElementSibling.innerHTML;
+        $.ajax({
+          type:"POST",
+          url:"{% url 'blogs:allFeedback' %}",
+          data:{
+            id:idNode,
+            csrfmiddlewaretoken:"{{csrf_token}}",
+          }
+        })
+    })
+  })
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
 {% endblock %}

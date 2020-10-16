@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% block css %}
+
+    {% endblock %}
+    <!-- Load font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <!-- Bootstrap CSS -->
+    
+    <title>Ploggers|
+        {% block title %}
+
+        {% endblock %}
+    </title>
+
+    <style>
+        
+    </style>
+
+</head>
+
+<body class='body'>
+    <!-- pre header section -->
+    <section class="mymail">
+        <span class="text"><a href="mailto:1999monustp@gmail.com">1999monustp@gmail.com</a></span>
+    </section>
+    <!-- nav bar -->
+    <header class="site-header">
+        <nav class="navbar navbar-expand-sm navbar-expand-md bg-dark navbar-dark">
+            <div class="container navigation">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">
+                            <h2>Ploggers</h2>
+                        </a>
+                    </li>
+                    <li class="nav-item mt-3 ml-3 ">
+                        <a class="nav-link" href="{% url 'blogs:blog-index' %}"><b>Home</b></a>
+                    </li>
+                    <li class="nav-item mt-3 ml-3">
+                        <a class="nav-link" href="#"><b>About</b></a>
+                    </li>
+                    {% if request.user.is_superuser %}
+                    <li class="nav-item mt-3 ml-3">
+                        <a class="nav-link" href="{% url 'blogs:allFeedback' %}"><b>All Feedbacks</b></a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item mt-3 ml-3">
+                        <a class="nav-link" href="{% url 'blogs:feedback' %}"><b>Feedback</b></a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item mt-3 ml-3">
+                        <a class="nav-link disabled" href="#"><b>Contact</b></a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">
+                            <h2><br></h2>
+                        </a>
+                    </li>
+
+                    <li class="nav-item mt-3 ml-3">
+                        <a class="nav-item nav-link" href='{% url "blogs:blog-create" %}'><b>New
+                                Post</b></a>
+                    </li>
+
+                    <li class="nav-item mt-3 ml-3">
+                        <a class="nav-item nav-link" href="{% url 'profile' %}"><b>{{user.username}}</b></a>
+                    </li>
+
+                    <li class="nav-item mt-3 ml-3">
+                        <a class="nav-item nav-link" href='{% url "logout" %}'><b>Logout</b></a>
+                    </li>
+
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">
+                            <h2></h2>
+                        </a>
+                    </li>
+
+                    <li class="nav-item mt-3 ml-3">
+                        <a class="nav-link " href="#">
+                            <h2></h2>
+                        </a>
+                    </li>
+                    <br />
+                    <br />
+                    <li class="nav-item mt-3 ml-3">
+                        <a class="nav-item nav-link" href='{% url "login" %}'><b>Login</b></a>
+                    </li>
+
+                    <li class="nav-item mt-3 ml-3">
+                        <a class="nav-item nav-link" href='{% url "userRegistration" %}'><b>Register</b></a>
+                    </li>
+                    {% endif %}
+            </div>
+            </ul>
+        </nav>
+    </header>
+    <main role='main' class="container">
+        <div class="row">
+            <div class="col-md-9 offset-md-1">
+                {% if messages %}
+                {% for msg in messages %}
+                <div class="alert alert-{{msg.tags}} alert-dismissible fade show mt-2" role='alert'>
+                    <p>{{msg}}</p>
+                </div>
+                {% endfor %}
+                {% endif %}
+
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+        <!-- sweet alert cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <!-- end sweet alert -->
+    
+    {% block JS %}
+    {% endblock %}
+
+</body>
+</html>

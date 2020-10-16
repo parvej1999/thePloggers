@@ -1,0 +1,176 @@
+.body{
+    margin:0px;
+    padding:0px;
+    /* background-color: rgb(200,200,200); */
+}
+
+/* new */
+header {
+    font-family: serif;
+    font-style:italic;
+    font-size: xx-large;
+    height:6rem;
+    background-color: black;
+    color:white;
+    position: relative;;
+}
+
+header .logo{
+  position: absolute;
+  top:2.5rem;
+  margin-left: 5rem;
+  line-height: 80%;
+  font-family:  serif;
+}
+
+#below-logo-text{
+    font-family: serif;
+    font-style: normal;
+    font-size: medium;
+}
+
+#section1{
+    height:542px;
+    background: #191919;
+    overflow: hidden;
+}
+
+.outer{
+    position: relative;
+}
+
+
+.outer .navigation-bar ul{
+    list-style-type: none;
+    text-decoration: none;
+    display: flex;
+}
+
+.outer .navigation-bar ul li {
+    flex-direction: row;
+    margin-left: 2rem;
+}
+
+.outer .navigation-bar ul li a{
+    color:#D4DDDA;
+    font-family: serif;
+    font-size: medium;
+    text-decoration: none;
+    font-weight: lighter;
+}
+
+.about-info{
+    position: absolute;
+    top:28px;;
+    left:0rem;
+    display: flex;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.about-image{
+    width:700px;
+    height:700px;
+    background-size: cover;
+    background-image: url("./headerImage.jpg");
+    background-attachment: fixed;
+    flex-direction: row;
+}
+
+
+.about-text{
+    color:white;
+    width:32rem;
+    margin-left:3rem;
+    margin-top:5rem;
+
+}
+
+#aboutheading {
+    font-family: sans-serif;
+    font-style: italic;
+    line-height: 1.6;
+    font-size: 400%;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+#about-text-outer{
+    color:#D4DDDA;
+
+}
+
+#welcome-text{
+    color:#D4DDDA;
+    font-weight: lighter;
+    font-size: small;
+    letter-spacing: 0.09rem;
+    line-height: 1.6;
+}
+
+
+/* end new */
+
+/* ==================================================== */
+.mymail{
+    background:#272a2d;
+    text-align: center;
+    padding:0.1rem;
+    
+}
+
+.navbar{
+    height:80%;
+}
+
+.mymail .text a{
+    text-decoration: none;
+    color:rgba(255,255,255,0.8);
+    letter-spacing: 0.1rem;
+
+}
+
+.mymail .text a:hover{
+    color:white;
+    letter-spacing: 0.3rem;
+
+}
+
+.nav-link{
+    font-family: Didot--eText--Italic, serif;
+}
+
+.post-content{
+    margin-top:2rem;
+    margin-bottom:2rem; 
+    border-radius: 15px;
+    border:1px rgb(150,150,150) solid;
+    padding:1.5rem;
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.6);
+    background-color: white;
+}
+
+
+
+.post-title a{
+color:#333;
+text-decoration:none;
+}
+
+.post-title a:hover{
+    color:cornflowerblue; 
+    text-decoration: none;
+    transform: scaleY(1.2);
+}
+
+#profile-image {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+div.account-heading{
+    margin:2rem 0rem 0rem 5px;
+}
+

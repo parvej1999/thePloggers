@@ -5,6 +5,7 @@
 }
 
 /* new */
+/* ===============logo/header of the page================= */
 header {
     font-family: serif;
     font-style:italic;
@@ -28,30 +29,32 @@ header .logo{
     font-style: normal;
     font-size: medium;
 }
+/* ===============end logo/header of the page================= */
 
+/* ======================================section1=============================== */
 #section1{
     height:542px;
     background: #191919;
     overflow: hidden;
 }
 
-.outer{
+#section1 .outer{
     position: relative;
 }
 
 
-.outer .navigation-bar ul{
+#section1 .outer .navigation-bar ul{
     list-style-type: none;
     text-decoration: none;
     display: flex;
 }
 
-.outer .navigation-bar ul li {
+#section1 .outer .navigation-bar ul li {
     flex-direction: row;
     margin-left: 2rem;
 }
 
-.outer .navigation-bar ul li a{
+#section1 .outer .navigation-bar ul li a{
     color:#D4DDDA;
     font-family: serif;
     font-size: medium;
@@ -68,6 +71,7 @@ header .logo{
     text-justify: inter-word;
 }
 
+
 .about-image{
     width:700px;
     height:700px;
@@ -76,7 +80,6 @@ header .logo{
     background-attachment: fixed;
     flex-direction: row;
 }
-
 
 .about-text{
     color:white;
@@ -107,7 +110,108 @@ header .logo{
     letter-spacing: 0.09rem;
     line-height: 1.6;
 }
+/* ======================================end section1=============================== */
 
+/* =======================================FOOTER==================================== */
+footer{
+    height:40rem;
+    background: black;
+    margin-top: 10rem;
+    color:white;
+}    
+
+footer .section-foooter-top{
+}
+
+footer .section-foooter-top .outer-elements{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+footer .section-foooter-top .outer-elements .contact-details{
+    flex-direction: row;
+    margin-top: 15rem;
+    justify-content: space-around;
+}
+
+footer .outer-elements .contact-details a{
+    text-decoration: none;
+    color:white;
+}
+
+footer .outer-elements .contact-details h1{
+    font-size: 100px;;
+    /* font-style: italic; */
+    font-family: serif;
+}
+
+footer .outer-elements .contact-details .details div{
+    line-height: 150%;
+}
+
+footer .section-foooter-top .outer-elements .contact-form-div{ 
+    margin-top:5rem;
+}
+
+.contact-form-div div {
+    margin-bottom: 0.8rem;
+}
+
+.contact-form-div div textarea {
+    position: relative;
+}
+
+.contact-form-div input[type="submit"]{
+    padding:15px 30px;   
+    border-radius: 0px; 
+    outline:none;
+    border:2px solid black ;
+    color:black;
+    font-size: large;
+    font-weight: bold;
+}
+
+.message-box{
+    position: relative;
+}
+
+.message-box div{
+    position: absolute;
+    left:11rem;
+    top:7rem;
+}
+
+.contact-form-div input[type="submit"]:hover{
+    border: 2px solid blueviolet;
+    transition: 1s;
+}
+
+.contact-form-div div .form-element{
+    background:black;
+    color:white;
+    outline: none;
+    border:1px solid white;
+    width:30rem;
+    padding:10px 20px ;
+
+}
+
+.contact-form-div div .form-element:focus{
+    background:black;
+    color:white;
+    outline: none;
+    border:1px solid green;
+    width:30rem;
+    padding:10px 20px ;
+    transition: 0.8s;
+}
+
+.contact-form-div div ::placeholder{
+    color:white;
+}
+
+/* =======================================END FOOTER==================================== */
 
 /* end new */
 
@@ -119,9 +223,6 @@ header .logo{
     
 }
 
-.navbar{
-    height:80%;
-}
 
 .mymail .text a{
     text-decoration: none;
@@ -136,9 +237,6 @@ header .logo{
 
 }
 
-.nav-link{
-    font-family: Didot--eText--Italic, serif;
-}
 
 .post-content{
     margin-top:2rem;

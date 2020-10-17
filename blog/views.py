@@ -8,6 +8,10 @@ from django.contrib.messages.views import SuccessMessageMixin
 from .forms import commentForm
 from .models import feedback
 
+# for mailing
+from django.core.mail import BadHeaderError, send_mail
+from django.http import HttpResponse, HttpResponseRedirect
+
 class blogListView(ListView):
     model = Post
     template_name = 'blog/index.html'
@@ -122,3 +126,44 @@ def indexFeedbacks(request):
         return render(request, 'blog/allFeedback.html', context)
     else:
         return render(request, 'blog/index.html', context)
+
+
+def contacted(request):
+    if request.method == 'POST':
+        _name = request.POST.get('fname')
+        _address = request.POST.get('address')
+        _subject = request.POST.get('subject')
+        _from_email = request.POST.get('mail')
+        _message = request.POST.get('message')
+        _phone = request.POST.get('phone')
+    
+        _message = f'''Thanks for contacting us Mr.{_name} 
+        
+        Please check Wheather your details are right else try contacting us again
+                Phone Number: "{_phone}" 
+                address: "{_address} "
+                
+        Your Message: 
+            "{_message}" 
+        
+        
+        
+        
+        we have recieved your regards will contact u soon!!!!!!!!!!
+        
+        Thanks:)'''
+
+    print(_name, _address, _subject, _from_email, _message, _phone)
+
+    if _phone and _subject and _message and _from_email and _from_email and _address:
+        try:
+            send_mail(_subject, _message, "djangoanyone@gmail.com", [_from_email, "1999monustp@gmail.com"])
+        except BadHeaderError:
+            return JsonResponse({
+                "error":"true",
+            })
+        return JsonResponse({
+                "success":"true",
+            })
+    
+    return HttpResponse('Make sure all fields are entered and valid.')

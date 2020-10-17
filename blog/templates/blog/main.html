@@ -16,7 +16,6 @@
     <!-- custom CSS -->
     <link rel="stylesheet" href="{% static 'style1.css' %}">
 
-    <link rel="shortcut icon" href="http://MY-CDN.example.com/favicon.ico" />
     <!-- Bootstrap CSS -->
     
 
@@ -66,7 +65,7 @@
                     </li>
                     {% endif %}
                     <li>
-                        <a class="navigation-link" href="#footer-contact-form" style="transition: 1s;"><b>Contact</b></a>
+                        <a class="navigation-link" href="#id-footer" style="transition: 1s;"><b>Contact</b></a>
                     </li>
                     {% if user.is_authenticated %}
                     <li>
@@ -135,45 +134,43 @@
 <!-- main body -->
 
 <!-- ================================FOOTER=========================== -->
-<footer class="footer" id="id-footer">
-<section class="section-foooter-top">
-    <div class="outer-elements">
-        <div class="contact-details">
-                <h1>Contact</h1><br>
-                <div class="details">
-
+<footer id="id-footer">
+    <section class="section-foooter-top">
+        <div class="outer-elements">
+            <div class="contact-details">
+                    <h1>Contact</h1><br>
+                    <div class="details">
                     Lucknow, India<br>
-                    <a href="mailto:1999monustp@gmail.com">1999monustp@gmail.com</a>
-                
-                </div>
+                        <a href="mailto:1999monustp@gmail.com">1999monustp@gmail.com</a>
+                    </div>
+            </div>
+            <div class="contact-form-div" id="footer-contact-form">
+                <form action="" method="post" class="contact-form" id="contact-form">
+                    <div class="contact-form-input">
+                        <input type="text" name="name" id="name" class="form-element" placeholder="Full Name" /><br>
+                    </div>
+                    <div class="contact-form-input">
+                        <input type="text" name="address" id="address" class="form-element" placeholder="Address"> <br>
+                    </div>
+                    <div class="contact-form-input">
+                        <input type="email" name="mail" id="mail" class="form-element" placeholder="Mail">
+                    </div>
+                    <div class="contact-form-input">
+                        <input type="text" name="phone" id="phone" class="form-element" placeholder="Phone"><br>
+                    </div>
+                    <div class="contact-form-input">
+                        <input type="text" name="subject" id="subject" class="form-element" placeholder="Subject"><br>
+                    </div>
+                    <div class="message-box">
+                            <textarea name="message" id="msg" cols="30" rows="5" class="form-element" placeholder="Leave Your Message here!..."></textarea>
+                            <div>
+                                <input type="submit" value="Send">
+                            </div>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="contact-form-div" id="footer-contact-form">
-            <form action="" method="post" class="contact-form">
-                <div class="contact-form-input">
-                    <input type="text" name="name" id="name" class="form-element" placeholder="Full Name" /><br>
-                </div>
-                <div class="contact-form-input">
-                    <input type="text" name="address" id="address" class="form-element" placeholder="Address"> <br>
-                </div>
-                <div class="contact-form-input">
-                    <input type="email" name="mail" id="mail" class="form-element" placeholder="Mail">
-                </div>
-                <div class="contact-form-input">
-                    <input type="text" name="phone" id="phone" class="form-element" placeholder="Phone"><br>
-                </div>
-                <div class="contact-form-input">
-                    <input type="text" name="subject" id="subject" class="form-element" placeholder="Subject"><br>
-                </div>
-                <div class="message-box">
-                        <textarea name="message" id="msg" cols="30" rows="5" class="form-element" placeholder="Leave Your Message here!..."></textarea>
-                        <div>
-                            <input type="submit" value="Send">
-                        </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</section>
+    </section>
 </footer>
 <!-- ================================END FOOTER=========================== -->
 
@@ -192,9 +189,39 @@
         <!-- sweet alert cdn -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <!-- end sweet alert -->
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     {% block JS %}
     {% endblock %}
+
+    <script>
+        // let contact_form = document.getElementById("footer-contact-form");
+        $(document).on('submit', '#footer-contact-form', function (event){
+            event.preventDefault()
+            $.ajax({
+                type:"POST",
+                url:'{% url "blogs:contact" %}',
+                data:{
+                    fname: $('#name').val(), 
+                    address: $('#address').val(), 
+                    mail: $('#mail').val(), 
+                    phone: $('#phone').val(), 
+                    subject: $('#subject').val(), 
+                    message: $('#msg').val(), 
+                    csrfmiddlewaretoken:"{{ csrf_token }}",
+                },
+                success:function(response){
+                    if(response.error == 'true' ){
+                    swal('OOPS', 'We Are Working On It', 'error');
+                    }
+                    else if(response.success == 'true' ){
+                        swal('Thanks', 'Well Done! Thanks For Contacting Us', 'success');
+                    }
+                }
+    
+            })
+        })
+    </script>
 
 </body>
 </html>

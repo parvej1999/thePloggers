@@ -14,5 +14,6 @@ urlpatterns = [
     path('delete/post/<int:pk>', blogDeleteView.as_view(), name='blog-delete'),
     path('feedback/form', views.feedbacks, name='feedback'),
     path('userFeedbacks/all', views.indexFeedbacks, name='allFeedback'),
+    path('contact/to', views.contacted, name='contact'),
 
 ]

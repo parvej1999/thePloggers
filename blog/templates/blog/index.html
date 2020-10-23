@@ -12,8 +12,9 @@ Home
 
 {% block content %}
 {% for post in  posts %}
-<div class="">
-    <p><a href="{% url 'blogs:user-blogs' post.author.username %}"
+<div class="card mt-4 ">
+    <div class="card-inner p-5">
+        <p><a href="{% url 'blogs:user-blogs' post.author.username %}"
             style="text-decoration: none;">{{post.author}}</a>&nbsp&nbsp&nbsp
         {{post.posted_on|date:'M d, Y'}}</p>
     <hr>
@@ -24,6 +25,7 @@ Home
     </div>
     <p>{{post.content|slice:":400"}}&nbsp<a href='{% url "blogs:blog-detail" post.pk %}'>more</a>...</p>
 
+    </div>
 </div>
 {% endfor %}
 <div class="pagination">

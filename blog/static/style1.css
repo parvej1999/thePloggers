@@ -120,19 +120,16 @@ footer{
     color:white;
 }    
 
-footer .section-foooter-top{
-}
-
 footer .section-foooter-top .outer-elements{
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-wrap: wrap-reverse;
 }
 
 footer .section-foooter-top .outer-elements .contact-details{
-    flex-direction: row;
+    text-align: center;
     margin-top: 15rem;
-    justify-content: space-around;
+    
 }
 
 footer .outer-elements .contact-details a{
@@ -146,12 +143,10 @@ footer .outer-elements .contact-details h1{
     font-family: serif;
 }
 
-footer .outer-elements .contact-details .details div{
-    line-height: 150%;
-}
 
+/* footer contact form */
 footer .section-foooter-top .outer-elements .contact-form-div{ 
-    margin-top:5rem;
+    margin-top:7rem;
 }
 
 .contact-form-div div {
@@ -176,10 +171,10 @@ footer .section-foooter-top .outer-elements .contact-form-div{
     position: relative;
 }
 
-.message-box div{
+.message-box div{ /* aligning submit button according to textarea */
     position: absolute;
-    left:11rem;
-    top:7rem;
+    left:40%;
+    top:75%;
 }
 
 .contact-form-div input[type="submit"]:hover{
@@ -202,7 +197,7 @@ footer .section-foooter-top .outer-elements .contact-form-div{
     color:white;
     outline: none;
     border:1px solid green;
-    width:30rem;
+    /* width:30rem; */
     padding:10px 20px ;
     transition: 0.8s;
 }
@@ -212,12 +207,65 @@ footer .section-foooter-top .outer-elements .contact-form-div{
 }
 
 
+/* =======================================Responsive====================================== */
+@media only screen and (max-width: 768px){
+    footer {
+        position:relative;
+        background:black;
+        width:100%;
+        height:42rem;
+        margin-top:5rem;
+    }
+
+    footer .section-foooter-top .outer-elements{
+        display: block;
+        
+    }
+
+    .contact-form-div div .form-element{
+        background:black;
+        color:white;
+        outline: none;
+        border:1px solid white;
+        width:90%;
+        padding:10px 20px ;
+    
+    }
+
+    .message-box div{
+        position: absolute;
+        left:36%;
+        /* top:7rem; */
+    }
+
+    footer .outer-elements .contact-details h1{
+        font-size: 75px;
+        font-family: serif;
+    }
+    
+    footer .outer-elements .contact-details .details {
+        margin-top:5px;
+    }
+
+    /* form div */
+    footer .section-foooter-top .outer-elements .contact-form-div{ 
+        margin-top:20px;
+        margin-left:6%;
+        align-items: center;
+    }
+
+
+    .contact-form-div input[type="submit"]{
+            padding:10px 28px; 
+        }
+}
+/* =======================================end Responsive====================================== */
 
 /* =======================================END FOOTER==================================== */
 
 /* end new */
 
-/* ==================================================== */
+/* ========================================================================================================== */
 .mymail{
     background:#272a2d;
     text-align: center;

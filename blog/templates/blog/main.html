@@ -91,6 +91,7 @@
             <div class="about-info">
                     <div class="about-image">
                         <!--IMAGE-->
+                        <!-- <img src="{% static 'headerImage.jpg'%}" alt="Header Image"> -->
                     </div>
                 <div class="about-text">
                     <p>
@@ -116,8 +117,6 @@
 <!-- main body -->
 <div class="container" style="margin-top: 10rem;">
 
-    <div class="card">
-        <div class="card-body">
             {% if messages %}
             {% for msg in messages %}
             <div class="alert alert-{{msg.tags}} alert-dismissible fade show mt-2" role='alert'>
@@ -128,8 +127,7 @@
     
             {% block content %}
             {% endblock %}
-        </div>
-      </div>
+      
 </div>
 <!-- main body -->
 
@@ -138,11 +136,13 @@
     <section class="section-foooter-top">
         <div class="outer-elements">
             <div class="contact-details">
-                    <h1>Contact</h1><br>
-                    <div class="details">
-                    Lucknow, India<br>
-                        <a href="mailto:1999monustp@gmail.com">1999monustp@gmail.com</a>
-                    </div>
+                    <div><h1>Contact</h1></div>
+                    
+                    <span class="details">
+                        <a href="mailto:1999monustp@gmail.com">1999monustp@gmail.com</a><br>
+                        <a href="tel:6387480183">6387480183</a> <br>
+                    Lucknow, India
+                    </span>
             </div>
             <div class="contact-form-div" id="footer-contact-form">
                 <form action="" method="post" class="contact-form" id="contact-form">

@@ -158,7 +158,10 @@ def contacted(request):
     if _phone and _subject and _message and _from_email and _from_email and _address:
         try:
             send_mail(_subject, _message, "djangoanyone@gmail.com", [_from_email, "1999monustp@gmail.com"])
+            print("\n\n====================================SENT===============================\n\n")
         except BadHeaderError:
+            print("\n\n====================================NOT SENT===============================\n\n")
+
             return JsonResponse({
                 "error":"true",
             })

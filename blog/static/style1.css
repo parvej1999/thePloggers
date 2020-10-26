@@ -31,6 +31,11 @@ header .logo{
 }
 /* ===============end logo/header of the page================= */
 
+#container{
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+}
+
 /* ======================================section1=============================== */
 #section1{
     height:542px;

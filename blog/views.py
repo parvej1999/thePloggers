@@ -128,8 +128,6 @@ def indexFeedbacks(request):
         return render(request, 'blog/index.html', context)
 
 
-start = "\033[1m" #for start bold text
-end = "\033[0;0m" #for ending bold text
 def contacted(request):
     if request.method == 'POST':
         _name = request.POST.get('fname')
@@ -139,13 +137,9 @@ def contacted(request):
         _message = request.POST.get('message')
         _phone = request.POST.get('phone')
     
-        _message = f'''\
-        <html>
-        <head></head>
-        <body>
-        Mr.<b>{_name}</b> you just contacted Ploggers
+        _message = f'''Mr.{_name} you just contacted Ploggers
         
-            <b>Message Details:</b>
+        Message Details:
             Name: {_name}
             Phone Number: {_phone} 
             Address: {_address}
@@ -153,12 +147,9 @@ def contacted(request):
             Mail: {_from_email}
             Message: {_message}
         
-  Thanks for contacting us, we will get in touch soon!!!!!!!!!!
+    Thanks for contacting us, we will get in touch soon!!!!!!!!!!
         
-        <b>Thanks:)</b>
-        </body>
-    </html>
-    '''
+        Thanks:)'''
 
     print(_name, _address, _subject, _from_email, _message, _phone)
 

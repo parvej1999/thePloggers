@@ -139,9 +139,9 @@ def contacted(request):
         _message = request.POST.get('message')
         _phone = request.POST.get('phone')
     
-        _message = f'''Mr.{start}{_name}{end} you just contacted Ploggers
+        _message = f'''Mr.<b>{_name}</b> you just contacted Ploggers
         
-        {start}Message Details:{end}
+            <b>Message Details:</b>
             Name: {_name}
             Phone Number: {_phone} 
             Address: {_address}
@@ -149,9 +149,9 @@ def contacted(request):
             Mail: {_from_email}
             Message: {_message}
         
-    Thanks for contacting us, we will get in touch soon!!!!!!!!!!
+  Thanks for contacting us, we will get in touch soon!!!!!!!!!!
         
-        {start}Thanks:){end}'''
+        <b>Thanks:)</b>'''
 
     print(_name, _address, _subject, _from_email, _message, _phone)
 

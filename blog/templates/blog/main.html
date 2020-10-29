@@ -27,12 +27,7 @@
     </style>
 </head>
 
-<body >
-    <!-- pre header section -->
-    <!-- <section class="mymail">
-        <span class="text"><a href="mailto:1999monustp@gmail.com">1999monustp@gmail.com</a></span>
-    </section> -->
-     
+<body >     
     <!-- Header -->
     <header>
         <section class="brand">
@@ -50,24 +45,41 @@
                     <label for="toggler"><i class="fa fa-times"></i></label>
                     <ul class="navs-link-list">
                         <li>
-                            <a href="">Home</a>
+                            <a class="navigation-link" href="{% url 'blogs:blog-index' %}"><b>Home</b></a>
                         </li>
                         <li>
-                            <a href="">About</a>
+                            <a class="navigation-link" href="{% url 'blogs:blog-index' %}"><b>About</b></a>
+                        </li>
+                        {% if request.user.is_superuser %}
+                        <li >
+                            <a class="navigation-link" href="{% url 'blogs:allFeedback' %}"><b>All Feedbacks</b></a>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a class="navigation-link" href="{% url 'blogs:feedback' %}"><b>Feedback</b></a>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <a class="navigation-link" href="#id-footer" style="transition: 1s;"><b>Contact</b></a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <li>
+                            <a class="navigation-link" href='{% url "blogs:blog-create" %}'><b>New
+                                    Post</b></a>
                         </li>
                         <li>
-                            <a href="">Feedback</a>
+                            <a class=" navigation-link" href='{% url "logout" %}'><b>Logout</b></a>
                         </li>
+    
+                        {% else %}
                         <li>
-                            <a href="">Contact</a>
+                            <a class=" navigation-link" href='{% url "login" %}'><b>Login</b></a>
                         </li>
+    
                         <li>
-                            <a href="">Login</a>
+                            <a class=" navigation-link" href='{% url "userRegistration" %}'><b>Register</b></a>
                         </li>
-                        <li>
-                            <a href="">Register</a>
-                        </li>
-        
+                        {% endif %}
                     </ul>
                 </div>                
             </nav>

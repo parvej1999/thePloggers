@@ -11,9 +11,9 @@
 
     {% endblock %}
     <!-- Load font awesome icons -->
-    <link rel="shortcut icon" href="//cdn.perfmatters.io/favicon.ico" type="image/x-icon" />
-
-    <!-- custom CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Tangerine:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- custom CSS -->
     <link rel="stylesheet" href="{% static 'style1.css' %}">
 
     <!-- Bootstrap CSS -->
@@ -25,101 +25,77 @@
     <style>
         
     </style>
-
 </head>
 
-<body class='body'>
+<body >
     <!-- pre header section -->
     <!-- <section class="mymail">
         <span class="text"><a href="mailto:1999monustp@gmail.com">1999monustp@gmail.com</a></span>
     </section> -->
      
     <!-- Header -->
-    <header class="site-header">
-        <div class="logo">
-            <div class="logo-text">Ploggers
+    <header>
+        <section class="brand">
+            <div>
+                <span class="logo">Ploggers</span>
+                <br>
+                <span style="letter-spacing:">Read On</span>
             </div>
-            <div id="below-logo-text">Read On</div>
-        </div>
+        </section>
+        
+        <section class="header-nav">
+            <input id="toggler" type="checkbox" style="display: none;">
+            <nav class="navigation-bar">
+                <div class="inner-nav">
+                    <label for="toggler"><i class="fa fa-times"></i></label>
+                    <ul class="navs-link-list">
+                        <li>
+                            <a href="">Home</a>
+                        </li>
+                        <li>
+                            <a href="">About</a>
+                        </li>
+                        <li>
+                            <a href="">Feedback</a>
+                        </li>
+                        <li>
+                            <a href="">Contact</a>
+                        </li>
+                        <li>
+                            <a href="">Login</a>
+                        </li>
+                        <li>
+                            <a href="">Register</a>
+                        </li>
+        
+                    </ul>
+                </div>                
+            </nav>
+        </section> 
+        <section class="header-site-info">
+            <div class="toggle-check">
+                <label for="toggler"><i class="fa fa-bars"></i></label>
+            </div>
+            <div class="headerImage">
+                <!-- image -->
+                <!-- <img src="headerImage.jpg" alt=""> -->
+            </div>
+            <div class="aboutText">
+                <span class="heading">
+                    Discover <br> Ploggers
+                </span><br>
+                <span >All the Latest!</span><br>
+                <p>Welcome to Ploggers, my very own passion project filled with unique and engaging content. Explore my site and all that I have to offer; perhaps Ploggers will ignite your own passions as well.</p>
+            </div>
+        </section>       
     </header>
     <!-- end header -->
-
-    <!-- section 1 -->
-    <section class="navigation" id="section1">
-        <div class="outer">
-            <div class="navigation-bar">
-                <ul class="navigation-links-list">
-                    <li style="display: hidden;">
-                        <a class="navigation-link" href="#container"></a>
-                    </li>
-                    <li>
-                        <a class="navigation-link" href="{% url 'blogs:blog-index' %}"><b>Home</b></a>
-                    </li>
-                    <li>
-                        <a class="navigation-link" href="{% url 'blogs:blog-index' %}"><b>About</b></a>
-                    </li>
-                    {% if request.user.is_superuser %}
-                    <li >
-                        <a class="navigation-link" href="{% url 'blogs:allFeedback' %}"><b>All Feedbacks</b></a>
-                    </li>
-                    {% else %}
-                    <li>
-                        <a class="navigation-link" href="{% url 'blogs:feedback' %}"><b>Feedback</b></a>
-                    </li>
-                    {% endif %}
-                    <li>
-                        <a class="navigation-link" href="#id-footer" style="transition: 1s;"><b>Contact</b></a>
-                    </li>
-                    {% if user.is_authenticated %}
-                    <li>
-                        <a class="navigation-link" href='{% url "blogs:blog-create" %}'><b>New
-                                Post</b></a>
-                    </li>
-                    <li>
-                        <a class=" navigation-link" href='{% url "logout" %}'><b>Logout</b></a>
-                    </li>
-
-                    {% else %}
-                    <li>
-                        <a class=" navigation-link" href='{% url "login" %}'><b>Login</b></a>
-                    </li>
-
-                    <li>
-                        <a class=" navigation-link" href='{% url "userRegistration" %}'><b>Register</b></a>
-                    </li>
-                    {% endif %}
-                </ul> 
-            </div>
-            
-            <div class="about-info">
-                    <div class="about-image">
-                        <!--IMAGE-->
-                        <!-- <img src="{% static 'headerImage.jpg'%}" alt="Header Image"> -->
-                    </div>
-                <div class="about-text">
-                    <p>
-                        <span id="aboutheading">
-                            Discover <br>
-                            Ploggers 
-                        </span>
-                        <br>
-                        <span id="about-text-outer">
-                            All the Latest <br><br>
-                            <span id="welcome-text">Welcome to Ploggers, my very own passion project filled with unique and engaging content. Explore my site and all that I have to offer; perhaps Ploggers will ignite your own passions as well.</span>
-                        </span>
-                    </span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- section2 -->
 
 <!-- ==============================header done====================== -->
 
 <!-- main body -->
 <div id="container">
-    <div class="container" style="margin-top: 10rem;">
+    <div class="container" >
     
                 {% if messages %}
                 {% for msg in messages %}

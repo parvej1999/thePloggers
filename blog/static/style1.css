@@ -1,127 +1,131 @@
-.body{
+body{
     margin:0px;
     padding:0px;
     /* background-color: rgb(200,200,200); */
 }
 
 /* new */
-/* ===============logo/header of the page================= */
-header {
-    font-family: serif;
-    font-style:italic;
-    font-size: xx-large;
-    height:6rem;
-    background-color: black;
+/* ===============header================= */
+.brand{
+    position: relative;
+    height:17vh;
+    background:black;
     color:white;
-    position: relative;;
+    
 }
 
-header .logo{
-  position: absolute;
-  top:2.5rem;
-  margin-left: 5rem;
-  line-height: 80%;
-  font-family:  serif;
+.brand div{
+    position: absolute;
+    top:54%;
+    left:10%;
+    line-height: 17px;
 }
 
-#below-logo-text{
+.logo{
+    font-size: 35px;
+    font-style:italic;
+}
+
+nav{
+    background:#191919; 
+    width:100%;
+}
+
+nav ul{
+    list-style-type: none;
+    display:flex;
+    margin:0px;
+    padding:4px;
+    margin-left:7%;
+}
+
+nav ul li{
+    margin-left:3%;
+}
+
+nav a{
+    text-decoration: none;
+    color:white;
+}
+
+nav .inner-nav label{
+    display:none;
+}
+
+.header-site-info{
+    position: relative;
+    height:510px;
+    background:#191919;
+    color:white;
+    
+}
+
+.toggle-check label{
+    float:right;
+    margin-right: 20px;
+    margin-top: 10px;
+    font-size: xx-large;
+    background:black;
+    padding: 5px 15px 5px 15px;
+    border-radius: 5px;
+    border:solid 0.5px white;
+    display: none;
+}
+
+
+.headerImage{
+    position: absolute;
+    width:50%;
+    height:100%;
+    background-size: cover;
+    background-image: url("./headerImage.jpg");
+    background-attachment: fixed;
+}
+
+.header-site-info .aboutText{
+    position: absolute;
+    left:55%;
+    top:10%;
+    text-align: justify;
+    width:37%;
+}
+
+.header-site-info .aboutText span{
+    line-height: 200%;;
+    font-family: 'Tangerine', cursive;
+    font-size:xx-large;
+}
+
+.header-site-info .aboutText .heading{
+    font-size: 60px;
+    font-style: italic;
+    line-height: 150%;
     font-family: serif;
-    font-style: normal;
-    font-size: medium;
 }
-/* ===============end logo/header of the page================= */
+
+.header-site-info .aboutText p{
+    letter-spacing: 2px;
+    margin-top:7%;
+    line-height: 160%;
+    color:#D4DDDA;
+    font-weight: bolder;
+    font-family: 'Tangerine', cursive;
+    font-size:x-large;
+}
+
+
+/* ===============end header================= */
 
 #container{
     scroll-behavior: smooth;
     overflow-y: scroll;
 }
 
-/* ======================================section1=============================== */
-#section1{
-    height:542px;
-    background: #191919;
-    overflow: hidden;
-}
-
-#section1 .outer{
-    position: relative;
-}
-
-
-#section1 .outer .navigation-bar ul{
-    list-style-type: none;
-    text-decoration: none;
-    display: flex;
-}
-
-#section1 .outer .navigation-bar ul li {
-    flex-direction: row;
-    margin-left: 2rem;
-}
-
-#section1 .outer .navigation-bar ul li a{
-    color:#D4DDDA;
-    font-family: serif;
-    font-size: medium;
-    text-decoration: none;
-    font-weight: lighter;
-}
-
-.about-info{
-    position: absolute;
-    top:28px;;
-    left:0rem;
-    display: flex;
-    text-align: justify;
-    text-justify: inter-word;
-}
-
-
-.about-image{
-    width:700px;
-    height:700px;
-    background-size: cover;
-    background-image: url("./headerImage.jpg");
-    background-attachment: fixed;
-    flex-direction: row;
-}
-
-.about-text{
-    color:white;
-    width:32rem;
-    margin-left:3rem;
-    margin-top:5rem;
-
-}
-
-#aboutheading {
-    font-family: sans-serif;
-    font-style: italic;
-    line-height: 1.6;
-    font-size: 400%;
-    margin-bottom: 2rem;
-    font-weight: bold;
-}
-
-#about-text-outer{
-    color:#D4DDDA;
-
-}
-
-#welcome-text{
-    color:#D4DDDA;
-    font-weight: lighter;
-    font-size: small;
-    letter-spacing: 0.09rem;
-    line-height: 1.6;
-}
-/* ======================================end section1=============================== */
-
 /* =======================================FOOTER==================================== */
 footer{
     height:40rem;
     background: black;
-    margin-top: 10rem;
+    margin-top: 5rem;
     color:white;
 }    
 
@@ -134,7 +138,9 @@ footer .section-foooter-top .outer-elements{
 footer .section-foooter-top .outer-elements .contact-details{
     text-align: center;
     margin-top: 15rem;
-    
+    font-family: 'Tangerine', cursive;
+    font-size: xx-large;
+    font-weight: 900;
 }
 
 footer .outer-elements .contact-details a{
@@ -144,10 +150,9 @@ footer .outer-elements .contact-details a{
 
 footer .outer-elements .contact-details h1{
     font-size: 100px;;
-    /* font-style: italic; */
-    font-family: serif;
-}
+    font-style: italic;
 
+}
 
 /* footer contact form */
 footer .section-foooter-top .outer-elements .contact-form-div{ 
@@ -213,13 +218,102 @@ footer .section-foooter-top .outer-elements .contact-form-div{
 
 
 /* =======================================Responsive====================================== */
+@media only screen and (max-width: 767px){
+    .headerImage{
+        position: unset;
+        width:0%;
+        height:0%;
+        background-size: unset;
+        background-image: url("");
+        background-attachment: unset;
+    }
+
+    .header-site-info{
+        background-size: unset;
+        background-image: url("./headerImage.jpg");
+        background-attachment: unset;
+    }
+
+    .header-site-info .aboutText{
+        position: absolute;
+        left:10%;
+        top:10%;
+        width:85%;
+    }
+    
+    .header-site-info .aboutText .heading{
+        font-size:42px;
+        line-height: 100%;
+    }
+
+    .header-site-info .aboutText span{
+        color:black;
+    }
+
+    .header-site-info .aboutText p{
+        color:black;
+        font-size: x-large;
+    }
+
+    .header-site-info .aboutText span{
+        line-height: 150%;
+    }
+
+    .toggle-check label{
+        display:block;
+    }
+
+    
+    nav{
+        position: fixed;
+        z-index: 1;
+        left:-100%;
+        transition: all 0.5s;
+        height:100%;
+        top:0px;
+        margin:0px;
+    }
+
+    nav ul{
+        text-align: center;
+        list-style-type: none;
+        display:block;
+        line-height: 500%;
+        margin:0%;
+    }
+
+    .inner-nav{
+        position: relative;
+    }
+    
+    nav .inner-nav label{
+        display:block;
+        position: absolute;
+        color:white;
+        float:right;
+        right:25px;
+        top:25px;
+        font-size: xx-large;
+        font-size:x-large;
+        cursor: pointer;
+        color:#D4DDDA;
+    }
+
+
+    #toggler:checked ~ nav{
+        left:0%;
+        
+    }
+    
+}
+
 @media only screen and (max-width: 768px){
     footer {
         position:relative;
         background:black;
         width:100%;
-        height:42rem;
-        margin-top:5rem;
+        height:46rem;
+        margin-top:20px;
     }
 
     footer .section-foooter-top .outer-elements{
@@ -233,7 +327,7 @@ footer .section-foooter-top .outer-elements .contact-form-div{
         outline: none;
         border:1px solid white;
         width:90%;
-        padding:10px 20px ;
+        padding:10px 15px ;
     
     }
 
@@ -262,8 +356,11 @@ footer .section-foooter-top .outer-elements .contact-form-div{
 
     .contact-form-div input[type="submit"]{
             padding:10px 28px; 
-        }
+    }
+
 }
+
+
 /* =======================================end Responsive====================================== */
 
 /* =======================================END FOOTER==================================== */

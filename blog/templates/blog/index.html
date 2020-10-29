@@ -12,7 +12,8 @@ Home
 
 {% block content %}
 {% for post in  posts %}
-<div class="card mt-4 ">
+<div class="card mt-3
+ ">
     <div class="card-inner p-5">
         <p><a href="{% url 'blogs:user-blogs' post.author.username %}"
             style="text-decoration: none;">{{post.author}}</a>&nbsp&nbsp&nbsp

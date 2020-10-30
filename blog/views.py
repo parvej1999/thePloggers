@@ -137,7 +137,7 @@ def contacted(request):
         _message = request.POST.get('message')
         _phone = request.POST.get('phone')
     
-        _message = f'''Mr.{_name} you just contacted Ploggers
+        _message = f'''Mr.{_name}, you just contacted Ploggers
         
         Message Details:
             Name: {_name}
@@ -150,12 +150,24 @@ def contacted(request):
     Thanks for contacting us, we will get in touch soon!!!!!!!!!!
         
         Thanks:)'''
+        admin_message = f'''Mr.{_name} just contacted Ploggers
+        
+        Message Details:
+            Name: {_name}
+            Phone Number: {_phone} 
+            Address: {_address}
+            Subject:{_subject}
+            Mail: {_from_email}
+            Message: {_message}
+        
+        He may need your response'''
 
     print(_name, _address, _subject, _from_email, _message, _phone)
 
     if _phone and _subject and _message and _from_email and _from_email and _address:
         try:
-            send_mail("The Ploggers World", _message, "djangoanyone@gmail.com", [_from_email, "1999monustp@gmail.com"])
+            send_mail("The Ploggers World", _message, "djangoanyone@gmail.com", [_from_email])
+            send_mail(f"Attention {name} Just Contacted You", admin_message, "djangoanyone@gmail.com", ['1999monustp@gmail.com'])
             print("\n\n====================================SENT===============================\n\n")
         except BadHeaderError:
             print("\n\n====================================NOT SENT===============================\n\n")

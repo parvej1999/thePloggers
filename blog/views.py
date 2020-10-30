@@ -167,7 +167,7 @@ def contacted(request):
     if _phone and _subject and _message and _from_email and _from_email and _address:
         try:
             send_mail("The Ploggers World", _message, "djangoanyone@gmail.com", [_from_email])
-            send_mail(f"Attention {name} Just Contacted You", admin_message, "djangoanyone@gmail.com", ['1999monustp@gmail.com'])
+            send_mail(f"Attention {_name} Just Contacted You", admin_message, "djangoanyone@gmail.com", ['1999monustp@gmail.com'])
             print("\n\n====================================SENT===============================\n\n")
         except BadHeaderError:
             print("\n\n====================================NOT SENT===============================\n\n")

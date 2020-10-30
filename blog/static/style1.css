@@ -1,3 +1,8 @@
+*{
+    font-family: serif;
+}
+
+
 body{
     margin:0px;
     padding:0px;
@@ -17,7 +22,7 @@ body{
 .brand div{
     position: absolute;
     top:54%;
-    left:10%;
+    left:5%;
     line-height: 17px;
 }
 
@@ -35,17 +40,25 @@ nav ul{
     list-style-type: none;
     display:flex;
     margin:0px;
-    padding:4px;
-    margin-left:7%;
+    padding:4px 0px 2px 0px;
+    margin-left:5%;
 }
 
 nav ul li{
-    margin-left:3%;
+    margin-right:2%;
 }
 
 nav a{
     text-decoration: none;
     color:white;
+    font-weight: lighter;
+    font-size: medium;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+nav a:hover, a:active{
+    text-decoration: none;
+    color:rgba(255,255,255,0.79);
 }
 
 nav .inner-nav label{
@@ -70,6 +83,7 @@ nav .inner-nav label{
     border-radius: 5px;
     border:solid 0.5px white;
     display: none;
+    cursor: pointer;
 }
 
 
@@ -77,9 +91,10 @@ nav .inner-nav label{
     position: absolute;
     width:50%;
     height:100%;
-    background-size: cover;
+    background-size: contain;
     background-image: url("./headerImage.jpg");
     background-attachment: fixed;
+
 }
 
 .header-site-info .aboutText{
@@ -139,7 +154,7 @@ footer .section-foooter-top .outer-elements .contact-details{
     text-align: center;
     margin-top: 15rem;
     font-family: 'Tangerine', cursive;
-    font-size: xx-large;
+    font-size:xx-large;
     font-weight: 900;
 }
 
@@ -229,7 +244,7 @@ footer .section-foooter-top .outer-elements .contact-form-div{
     }
 
     .header-site-info{
-        background-size: unset;
+        background-size: 100vw 100%;
         background-image: url("./headerImage.jpg");
         background-attachment: unset;
     }
@@ -252,7 +267,7 @@ footer .section-foooter-top .outer-elements .contact-form-div{
 
     .header-site-info .aboutText p{
         color:black;
-        font-size: x-large;
+        font-size: xx-large;
     }
 
     .header-site-info .aboutText span{
@@ -269,6 +284,7 @@ footer .section-foooter-top .outer-elements .contact-form-div{
         z-index: 1;
         left:-100%;
         transition: all 0.5s;
+        width:60%;
         height:100%;
         top:0px;
         margin:0px;
@@ -280,6 +296,23 @@ footer .section-foooter-top .outer-elements .contact-form-div{
         display:block;
         line-height: 500%;
         margin:0%;
+
+    }
+
+    nav ul li {
+        border-bottom: solid 1px black;
+        margin:0px;
+    }
+
+    nav a{
+        font-size: x-large;
+        font-family: 'Tangerine', cursive;
+        
+    }
+    
+    nav ul li:hover, a:active{
+        color:rgba(255,255,255,0.78);
+        background: black;
     }
 
     .inner-nav{
@@ -293,7 +326,6 @@ footer .section-foooter-top .outer-elements .contact-form-div{
         float:right;
         right:25px;
         top:25px;
-        font-size: xx-large;
         font-size:x-large;
         cursor: pointer;
         color:#D4DDDA;
@@ -339,7 +371,6 @@ footer .section-foooter-top .outer-elements .contact-form-div{
 
     footer .outer-elements .contact-details h1{
         font-size: 75px;
-        font-family: serif;
     }
     
     footer .outer-elements .contact-details .details {
@@ -368,7 +399,7 @@ footer .section-foooter-top .outer-elements .contact-form-div{
 /* end new */
 
 /* ========================================================================================================== */
-.mymail{
+/* .mymail{
     background:#272a2d;
     text-align: center;
     padding:0.1rem;
@@ -423,4 +454,4 @@ text-decoration:none;
 div.account-heading{
     margin:2rem 0rem 0rem 5px;
 }
-
+ */

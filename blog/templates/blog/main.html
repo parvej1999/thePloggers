@@ -29,55 +29,57 @@
 
 <body >     
     <!-- Header -->
+
     <header>
         <section class="brand">
             <div>
                 <span class="logo">Ploggers</span>
                 <br>
-                <span style="letter-spacing:">Read On</span>
+                <span>Read On</span>
             </div>
         </section>
         
         <section class="header-nav">
+            <a id="toContainer" href="#container" style="none"></a>
             <input id="toggler" type="checkbox" style="display: none;">
             <nav class="navigation-bar">
                 <div class="inner-nav">
                     <label for="toggler"><i class="fa fa-times"></i></label>
                     <ul class="navs-link-list">
                         <li>
-                            <a class="navigation-link" href="{% url 'blogs:blog-index' %}"><b>Home</b></a>
+                            <a class="naigation-links" href="{% url 'blogs:blog-index' %}"><b>Home</b></a>
                         </li>
                         <li>
-                            <a class="navigation-link" href="{% url 'blogs:blog-index' %}"><b>About</b></a>
+                            <a class="naigation-links" href="{% url 'blogs:blog-index' %}"><b>About</b></a>
                         </li>
                         {% if request.user.is_superuser %}
                         <li >
-                            <a class="navigation-link" href="{% url 'blogs:allFeedback' %}"><b>All Feedbacks</b></a>
+                            <a class="naigation-links" href="{% url 'blogs:allFeedback' %}"><b>All Feedbacks</b></a>
                         </li>
                         {% else %}
                         <li>
-                            <a class="navigation-link" href="{% url 'blogs:feedback' %}"><b>Feedback</b></a>
+                            <a class="naigation-links"  href="{% url 'blogs:feedback' %}"><b>Feedback</b></a>
                         </li>
                         {% endif %}
                         <li>
-                            <a class="navigation-link" href="#id-footer" style="transition: 1s;"><b>Contact</b></a>
+                            <a class="naigation-links" href="#id-footer" style="transition: 1s;"><b>Contact</b></a>
                         </li>
                         {% if user.is_authenticated %}
                         <li>
-                            <a class="navigation-link" href='{% url "blogs:blog-create" %}'><b>New
+                            <a class="naigation-links" href='{% url "blogs:blog-create" %}'><b>New
                                     Post</b></a>
                         </li>
                         <li>
-                            <a class=" navigation-link" href='{% url "logout" %}'><b>Logout</b></a>
+                            <a class="naigation-links"  href='{% url "logout" %}'><b>Logout</b></a>
                         </li>
     
                         {% else %}
                         <li>
-                            <a class=" navigation-link" href='{% url "login" %}'><b>Login</b></a>
+                            <a class="naigation-links"  href='{% url "login" %}'><b>Login</b></a>
                         </li>
     
                         <li>
-                            <a class=" navigation-link" href='{% url "userRegistration" %}'><b>Register</b></a>
+                            <a class="naigation-links"  href='{% url "userRegistration" %}'><b>Register</b></a>
                         </li>
                         {% endif %}
                     </ul>
@@ -187,6 +189,16 @@
 
     {% block JS %}
     {% endblock %}
+
+    <script>
+        let clicked = document.getElementById("toContainer");
+        let navLinks = document.getElementsByClassName("naigation-links");
+        Array.from(navLinks).forEach(element => {
+            element.addEventListener('click', function (){
+                clicked.click();
+            })
+        })
+    </script>
 
     <script>
         // let contact_form = document.getElementById("footer-contact-form");

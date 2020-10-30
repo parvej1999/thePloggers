@@ -36,19 +36,19 @@ Feedback
                         <div class="form-row">
                           <div class="form-group col-md-6 col-sm-12">
                             <label for="fullName">Full Name</label>
-                            <input type="text" class="form-control" name="fullName" id="fullName" required>
+                            <input type="text" class="form-control" name="fullName" id="feedback_fullName" required>
                           </div>
                           <div class="form-group col-md-6 col-sm-12">
                             <label for="phone">Phone Number</label>
-                            <input type="text" class="form-control" id="phone" required>
+                            <input type="text" class="form-control" id="feedback_phone" required>
                           </div>
                           <div class="form-group col-md-12 col-sm-12">
                               <label for="mail">Your Email</label>
-                              <input type="mail" class="form-control" id="mail" required>
+                              <input type="mail" class="form-control" id="feedback_mailId" required>
                             </div>
                             <div class="form-group col-md-12 col-sm-12">
                                 <label for="message">Your Feedback</label>
-                                <textarea class="form-control" id="message" rows="3" name="message" required></textarea>
+                                <textarea class="form-control" id="feedback_message" rows="3" name="message" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Send</button>
                         </div>
@@ -70,10 +70,10 @@ Feedback
             type:'POST',
             url:"{% url 'blogs:feedback' %}",
             data:{
-                'fName':$('#fullName').val(),
-                'cntct':$('#phone').val(),
-                'message':$('#message').val(),
-                'mail':$('#mail').val(),
+                'fName':$('#feedback_fullName').val(),
+                'cntct':$('#feedback_phone').val(),
+                'mail':$('#feedback_mailId').val(),
+                'message':$('#feedback_message').val(),
                 csrfmiddlewaretoken:'{{csrf_token}}',
             },
             success:function (response){

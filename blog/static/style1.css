@@ -136,100 +136,88 @@ nav .inner-nav label{
     overflow-y: scroll;
 }
 
-/* =======================================FOOTER==================================== */
-footer{
-    height:40rem;
+footer .section1{
     background: black;
-    margin-top: 5rem;
+    height:650px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    position: relative;
+    padding: 1%;
+}
+footer .contact-details{
     color:white;
-}    
-
-footer .section-foooter-top .outer-elements{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap-reverse;
+    margin:auto 0px;
+    text-align: center;
 }
 
-footer .section-foooter-top .outer-elements .contact-details{
-    text-align: center;
-    margin-top: 15rem;
+footer .contact-details span{
+    font-family: 'Tangerine', cursive;
+    font-size:x-large;
+}
+
+footer .contact-details .footer-heading{
+    font-size: 500%;
+}
+
+footer .contact-details a{
+    color:white;
+    text-decoration: none;
     font-family: 'Tangerine', cursive;
     font-size:xx-large;
-    font-weight: 900;
+
 }
 
-footer .outer-elements .contact-details a{
-    text-decoration: none;
+footer .contact-form-div{
+    margin:auto 0px;
+    padding-left:5%;
+}
+
+footer .contact-form-div input[type="text"], input[type="email"], textarea{
+    background:transparent;
+    padding:3%;
     color:white;
-}
-
-footer .outer-elements .contact-details h1{
-    font-size: 100px;;
-    font-style: italic;
-
-}
-
-/* footer contact form */
-footer .section-foooter-top .outer-elements .contact-form-div{ 
-    margin-top:7rem;
-}
-
-.contact-form-div div {
-    margin-bottom: 0.8rem;
-}
-
-.contact-form-div div textarea {
-    position: relative;
-}
-
-.contact-form-div input[type="submit"]{
-    padding:15px 30px;   
-    border-radius: 0px; 
+    width:90%;
+    margin:7px;
     outline:none;
-    border:2px solid black ;
-    color:black;
-    font-size: large;
-    font-weight: bold;
+    border:1.5px solid white;
+    resize:none;
 }
 
-.message-box{
-    position: relative;
-}
-
-.message-box div{ /* aligning submit button according to textarea */
+footer .contact-form-div .message-box #contact-form-button{
     position: absolute;
-    left:40%;
-    top:75%;
+    top:90%;
 }
 
-.contact-form-div input[type="submit"]:hover{
-    border: 2px solid blueviolet;
-    transition: 1s;
-}
-
-.contact-form-div div .form-element{
-    background:black;
-    color:white;
-    outline: none;
-    border:1px solid white;
-    width:30rem;
-    padding:10px 20px ;
-
-}
-
-.contact-form-div div .form-element:focus{
-    background:black;
-    color:white;
-    outline: none;
-    border:1px solid green;
-    /* width:30rem; */
-    padding:10px 20px ;
-    transition: 0.8s;
-}
-
-.contact-form-div div ::placeholder{
+footer .contact-form-div input[type="text"]::placeholder , input[type="email"]::placeholder, textarea::placeholder{
+    font-size: larger;
+    font-weight: lighter;
     color:white;
 }
+
+footer .contact-form-div .message-box{
+   width:100%;
+   resize: both;
+   position: relative;
+}
+
+footer .contact-form-div .message-box input{
+    position: absolute;
+    top:71%;
+    left:32%;
+}
+
+footer .contact-form-div .message-box input[type="submit"]{
+    color:black;
+    padding:3% 10%;
+    background: white;
+    border:1px solid black;
+    font-size: larger;
+}
+footer .contact-form-div .message-box input[type="submit"]:hover{
+    border: 1px solid mintcream;
+}
+/* =================================footer=================== */
 
 
 /* =======================================Responsive====================================== */
@@ -244,9 +232,10 @@ footer .section-foooter-top .outer-elements .contact-form-div{
     }
 
     .header-site-info{
-        background-size: 100vw 100%;
-        background-image: url("./headerImage.jpg");
+        background-size: cover;
+        background: url("./headerImage1.jpg") no-repeat;
         background-attachment: unset;
+        height:500px;
     }
 
     .header-site-info .aboutText{
@@ -336,59 +325,19 @@ footer .section-foooter-top .outer-elements .contact-form-div{
         left:0%;
         
     }
+
+    footer .section1{
+        height:780px;
+    }
     
+    footer 
 }
 
-@media only screen and (max-width: 768px){
-    footer {
-        position:relative;
-        background:black;
-        width:100%;
-        height:46rem;
-        margin-top:20px;
+@media only screen and (max-width: 425px){
+    .header-site-info .aboutText p{
+        color:black;
+        font-size:x-large;
     }
-
-    footer .section-foooter-top .outer-elements{
-        display: block;
-        
-    }
-
-    .contact-form-div div .form-element{
-        background:black;
-        color:white;
-        outline: none;
-        border:1px solid white;
-        width:90%;
-        padding:10px 15px ;
-    
-    }
-
-    .message-box div{
-        position: absolute;
-        left:36%;
-        /* top:7rem; */
-    }
-
-    footer .outer-elements .contact-details h1{
-        font-size: 75px;
-    }
-    
-    footer .outer-elements .contact-details .details {
-        margin-top:5px;
-    }
-
-    /* form div */
-    footer .section-foooter-top .outer-elements .contact-form-div{ 
-        margin-top:20px;
-        margin-left:6%;
-        align-items: center;
-    }
-
-
-    .contact-form-div input[type="submit"]{
-            padding:10px 28px; 
-    }
-
 }
 
 

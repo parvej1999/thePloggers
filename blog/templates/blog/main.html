@@ -208,7 +208,11 @@
                     swal('OOPS', 'We Are Working On It', 'error');
                     }
                     else if(response.success == 'true' ){
-                        swal('Thanks', 'Well Done! Thanks For Contacting Us', 'success');
+                        swal('Thanks', 'Well Done! Thanks For Contacting Us', 'success')
+                        .then((msg) => {
+                            form = document.getElementById("contact-form");
+                            form.reset();
+                        })
                     }
                 }
     

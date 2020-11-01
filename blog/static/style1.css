@@ -184,16 +184,24 @@ footer .contact-form-div input[type="text"], input[type="email"], textarea{
     resize:none;
 }
 
+footer .contact-form-div input[type="text"]:focus, input[type="email"]:focus, textarea:focus{
+    border:1.5px solid green;
+    transition: 0.5s ease-in-out;
+}
+
 footer .contact-form-div .message-box #contact-form-button{
     position: absolute;
     top:90%;
 }
 
 footer .contact-form-div input[type="text"]::placeholder , input[type="email"]::placeholder, textarea::placeholder{
-    font-size: larger;
+    font-size: small;
     font-weight: lighter;
-    color:white;
+    color:#999999;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
 }
+
 
 footer .contact-form-div .message-box{
    width:100%;
@@ -214,6 +222,7 @@ footer .contact-form-div .message-box input[type="submit"]{
     border:1px solid black;
     font-size: larger;
 }
+
 footer .contact-form-div .message-box input[type="submit"]:hover{
     border: 1px solid mintcream;
 }
@@ -330,7 +339,6 @@ footer .contact-form-div .message-box input[type="submit"]:hover{
         height:780px;
     }
     
-    footer 
 }
 
 @media only screen and (max-width: 425px){
